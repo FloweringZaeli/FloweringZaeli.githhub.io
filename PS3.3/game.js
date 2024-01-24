@@ -52,7 +52,7 @@ PS.init = function( system, options ) {
 	// Uncomment the following code line
 	// to verify operation:
 
-	PS.debug( "PS.init() called\n" );
+	//PS.debug( "PS.init() " );
 
 	// This function should normally begin
 	// with a call to PS.gridSize( x, y )
@@ -72,7 +72,7 @@ PS.init = function( system, options ) {
 	// Uncomment the following code line and
 	// change the string parameter as needed.
 
-	PS.statusText( "Game" );
+	PS.statusText( "Time to fuck around" );
 
 	// Add any other initialization code you need here.
 };
@@ -87,10 +87,80 @@ This function doesn't have to do anything. Any value returned is ignored.
 [options : Object] = A JavaScript object with optional data properties; see API documentation for details.
 */
 
-//PS.enter = function( x, y, data, options ) {
+PS.touch = function( x, y, data, options ) {
 	// Uncomment the following code line
 	// to inspect x/y parameters:
- //   PS.color( x, y, PS.COLOR_BLUE );
+	var color = PS.unmakeRGB( PS.color( x , y ), {} );
+	if(color.r == 255 && color.g == 255 && color.b == 255) {
+		PS.color( x, y, PS.COLOR_BLUE );
+	}
+	else if (color.r == 0 && color.g == 0 && color.b == 255){
+		PS.color( x, y, PS.COLOR_RED );
+	}
+	else if (color.r == 255 && color.g == 0 && color.b == 0){
+		PS.color( x, y, PS.COLOR_GREEN );
+	}
+	else if (color.r == 0 && color.g == 255 && color.b == 0){
+		PS.color( x, y, PS.COLOR_WHITE );
+//BR
+	}var color = PS.unmakeRGB( PS.color( x + 1 , y ), {} );
+	if(color.r == 255 && color.g == 255 && color.b == 255) {
+		PS.color( x + 1, y, PS.COLOR_BLUE );
+	}
+	else if (color.r == 0 && color.g == 0 && color.b == 255){
+		PS.color( x + 1, y, PS.COLOR_RED );
+	}
+	else if (color.r == 255 && color.g == 0 && color.b == 0){
+		PS.color( x + 1, y, PS.COLOR_GREEN );
+	}
+	else if (color.r == 0 && color.g == 255 && color.b == 0){
+		PS.color( x + 1 , y, PS.COLOR_WHITE );
+	}
+//BR
+	var color = PS.unmakeRGB( PS.color( x - 1, y ), {} );
+	if(color.r == 255 && color.g == 255 && color.b == 255) {
+		PS.color( x - 1, y, PS.COLOR_BLUE );
+	}
+	else if (color.r == 0 && color.g == 0 && color.b == 255){
+		PS.color( x - 1 , y, PS.COLOR_RED );
+	}
+	else if (color.r == 255 && color.g == 0 && color.b == 0){
+		PS.color( x - 1, y, PS.COLOR_GREEN );
+	}
+	else if (color.r == 0 && color.g == 255 && color.b == 0){
+		PS.color( x - 1, y, PS.COLOR_WHITE );
+	}
+//BR
+	var color = PS.unmakeRGB( PS.color( x , y + 1), {} );
+	if(color.r == 255 && color.g == 255 && color.b == 255) {
+		PS.color( x, y + 1, PS.COLOR_BLUE );
+	}
+	else if (color.r == 0 && color.g == 0 && color.b == 255){
+		PS.color( x, y + 1, PS.COLOR_RED );
+	}
+	else if (color.r == 255 && color.g == 0 && color.b == 0){
+		PS.color( x, y + 1, PS.COLOR_GREEN );
+	}
+	else if (color.r == 0 && color.g == 255 && color.b == 0){
+		PS.color( x, y + 1, PS.COLOR_WHITE );
+	}
+//BR
+var color = PS.unmakeRGB( PS.color( x , y - 1 ), {} );
+	if(color.r == 255 && color.g == 255 && color.b == 255) {
+		PS.color( x, y - 1, PS.COLOR_BLUE );
+	}
+	else if (color.r == 0 && color.g == 0 && color.b == 255){
+		PS.color( x, y - 1, PS.COLOR_RED );
+	}
+	else if (color.r == 255 && color.g == 0 && color.b == 0){
+		PS.color( x, y - 1, PS.COLOR_GREEN );
+	}
+	else if (color.r == 0 && color.g == 255 && color.b == 0){
+		PS.color( x, y - 1, PS.COLOR_WHITE );
+	}
+
+	//PS.debug( "r = " + color.r + ", g = " + color.g + ", b = " + color.b + "\n" );
+   // PS.color( x, y, PS.COLOR_BLUE );
 	//PS.debug( "PS.enter() @ " + x + ", " + y + "\n" );
 
 
@@ -126,14 +196,14 @@ This function doesn't have to do anything. Any value returned is ignored.
 [options : Object] = A JavaScript object with optional data properties; see API documentation for details.
 */
 
-PS.enter = function( x, y, data, options ) {
+//PS.enter = function( x, y, data, options ) {
 	// Uncomment the following code line to inspect x/y parameters:
-	if()
-    PS.color( x, y, PS.COLOR_BLUE );
-    PS.debug( "PS.enter() @ " + x + ", " + y + "\n" );
+//	if()
+  //  PS.color( x, y, PS.COLOR_BLUE );
+    //PS.debug( "PS.enter() @ " + x + ", " + y + "\n" );
 
 	// Add code here for when the mouse cursor/touch enters a bead.
-};
+//};
 
 /*
 PS.exit ( x, y, data, options )
