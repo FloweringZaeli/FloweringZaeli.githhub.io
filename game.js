@@ -74,6 +74,9 @@ PS.init = function( system, options ) {
 
 	PS.statusText( "Time to fuck around" );
 
+
+	
+
 	// Add any other initialization code you need here.
 };
 
@@ -90,6 +93,7 @@ This function doesn't have to do anything. Any value returned is ignored.
 PS.touch = function( x, y, data, options ) {
 	// Uncomment the following code line
 	// to inspect x/y parameters:
+	
 	var color = PS.unmakeRGB( PS.color( x , y ), {} );
 	if(color.r == 255 && color.g == 255 && color.b == 255) {
 		PS.color( x, y, PS.COLOR_BLUE );
@@ -103,6 +107,7 @@ PS.touch = function( x, y, data, options ) {
 	else if (color.r == 0 && color.g == 255 && color.b == 0){
 		PS.color( x, y, PS.COLOR_WHITE );
 //BR
+	if (x <= 7){
 	}var color = PS.unmakeRGB( PS.color( x + 1 , y ), {} );
 	if(color.r == 255 && color.g == 255 && color.b == 255) {
 		PS.color( x + 1, y, PS.COLOR_BLUE );
@@ -116,7 +121,9 @@ PS.touch = function( x, y, data, options ) {
 	else if (color.r == 0 && color.g == 255 && color.b == 0){
 		PS.color( x + 1 , y, PS.COLOR_WHITE );
 	}
+}
 //BR
+	if ( x >= 2 ){
 	var color = PS.unmakeRGB( PS.color( x - 1, y ), {} );
 	if(color.r == 255 && color.g == 255 && color.b == 255) {
 		PS.color( x - 1, y, PS.COLOR_BLUE );
@@ -130,7 +137,9 @@ PS.touch = function( x, y, data, options ) {
 	else if (color.r == 0 && color.g == 255 && color.b == 0){
 		PS.color( x - 1, y, PS.COLOR_WHITE );
 	}
+}
 //BR
+	if ( y <= 7 ){
 	var color = PS.unmakeRGB( PS.color( x , y + 1), {} );
 	if(color.r == 255 && color.g == 255 && color.b == 255) {
 		PS.color( x, y + 1, PS.COLOR_BLUE );
@@ -144,8 +153,10 @@ PS.touch = function( x, y, data, options ) {
 	else if (color.r == 0 && color.g == 255 && color.b == 0){
 		PS.color( x, y + 1, PS.COLOR_WHITE );
 	}
+}
 //BR
-var color = PS.unmakeRGB( PS.color( x , y - 1 ), {} );
+	if (y >= 2){
+	var color = PS.unmakeRGB( PS.color( x , y - 1 ), {} );
 	if(color.r == 255 && color.g == 255 && color.b == 255) {
 		PS.color( x, y - 1, PS.COLOR_BLUE );
 	}
@@ -158,10 +169,8 @@ var color = PS.unmakeRGB( PS.color( x , y - 1 ), {} );
 	else if (color.r == 0 && color.g == 255 && color.b == 0){
 		PS.color( x, y - 1, PS.COLOR_WHITE );
 	}
-
-	//PS.debug( "r = " + color.r + ", g = " + color.g + ", b = " + color.b + "\n" );
-   // PS.color( x, y, PS.COLOR_BLUE );
-	//PS.debug( "PS.enter() @ " + x + ", " + y + "\n" );
+	}
+	//for (let i = 8;){}
 
 
 	// Add code here for mouse clicks/touches
