@@ -74,15 +74,55 @@ PS.init = function( system, options ) {
 
 	PS.statusText( "Match" );
 
+	var x = 0
+	var y = 0
+	for (var i = 0; i < 8; i++ ){
+		
+		if (x == 0) {
+			PS.color( x, y, PS.COLOR_BLUE );
+			var x = x + 1
+		}
+		if (x == 1){
+			PS.color( x, y, PS.COLOR_RED );
+			var x = x + 1
+		}
+		if (x == 2){
+			PS.color( x, y, PS.COLOR_GREEN );
+			var x = x + 1
+			var x = x + 1
+		}
+		if (x == 3){
+			PS.color( x, y, PS.COLOR_WHITE );
+		}
+		if (x == 4) {
+			PS.color( x, y, PS.COLOR_BLUE );
+			var x = x + 1
+		}
+		if (x == 5){
+			PS.color( x, y, PS.COLOR_RED );
+			var x = x + 1
+		}
+		if (x == 6){
+			PS.color( x, y, PS.COLOR_GREEN );
+			var x = x + 1
+		}
+		if (x == 7){
+			PS.color( x, y, PS.COLOR_WHITE );
+			var x = 0
+			var y = y + 1
+		
 
+	}
 	
-
+	}
 	// Add any other initialization code you need here.
 };
+
 var b = false;
 var g = false;
 var r = false;
 var w = false;
+
 /*
 PS.touch ( x, y, data, options )
 Called when the left mouse button is clicked over bead(x, y), or when bead(x, y) is touched.
@@ -120,8 +160,8 @@ PS.touch = function( x, y, data, options ) {
 		if (r == false ){
 			PS.color( x, y, PS.COLOR_RED );
 			}
-			else {
-				if (g == false){
+		
+				else if (g == false){
 				PS.color( x, y, PS.COLOR_GREEN );
 				}
 				else if (w == false){
@@ -132,15 +172,14 @@ PS.touch = function( x, y, data, options ) {
 				}
 				
 			}
-		}
+		
 
 
 	else if (color.r == 255 && color.g == 0 && color.b == 0){
 		if (g == false ){
 			PS.color( x, y, PS.COLOR_GREEN );
 			}
-			else {
-				if (w == false){
+			else if (w == false){
 				PS.color( x, y, PS.COLOR_WHITE );
 				}
 				else if (b == false){
@@ -150,13 +189,12 @@ PS.touch = function( x, y, data, options ) {
 					PS.color( x, y, PS.COLOR_RED );
 				}
 			}
-	}
+		
 	else if (color.r == 0 && color.g == 255 && color.b == 0){
 		if (w == false ){
 			PS.color( x, y, PS.COLOR_WHITE );
 			}
-			else {
-				if (b == false){
+			else if (b == false){
 				PS.color( x, y, PS.COLOR_BLUE );
 				}
 				else if (r == false){
@@ -166,7 +204,7 @@ PS.touch = function( x, y, data, options ) {
 					PS.color( x, y, PS.COLOR_GREEN );
 				}		
 			}
-	}
+	
 //BR
 	if (x < 7){
 	var color = PS.unmakeRGB( PS.color( x + 1 , y ), {} );
@@ -174,8 +212,7 @@ PS.touch = function( x, y, data, options ) {
 		if (b == false ){
 			PS.color( x + 1, y, PS.COLOR_BLUE );
 			}
-			else {
-				if (r == false){
+			else if (r == false){
 				PS.color( x + 1, y, PS.COLOR_RED );
 				}
 				else if (g == false){
@@ -185,14 +222,13 @@ PS.touch = function( x, y, data, options ) {
 					PS.color( x + 1, y, PS.COLOR_WHITE );
 				}
 				
-			}
+			
 	}
 	else if (color.r == 0 && color.g == 0 && color.b == 255){
 		if (r == false ){
 			PS.color( x + 1, y, PS.COLOR_RED );
 			}
-			else {
-				if (g == false){
+			else if (g == false){
 				PS.color( x + 1, y, PS.COLOR_GREEN );
 				}
 				else if (w == false){
@@ -203,13 +239,12 @@ PS.touch = function( x, y, data, options ) {
 				}
 				
 			}
-	}
+	
 	else if (color.r == 255 && color.g == 0 && color.b == 0){
 		if (g == false ){
 			PS.color( x + 1, y, PS.COLOR_GREEN );
 			}
-			else {
-				if (w == false){
+			else if (w == false){
 				PS.color( x + 1, y, PS.COLOR_WHITE );
 				}
 				else if (b == false){
@@ -218,14 +253,14 @@ PS.touch = function( x, y, data, options ) {
 				else if (r == false){
 					PS.color( x + 1, y, PS.COLOR_RED );
 				}
-			}
+			
 	}
+
 	else if (color.r == 0 && color.g == 255 && color.b == 0){
 		if (w == false ){
 			PS.color( x + 1, y, PS.COLOR_WHITE );
 			}
-			else {
-				if (b == false){
+			else if (b == false){
 				PS.color( x + 1, y, PS.COLOR_BLUE );
 				}
 				else if (r == false){
@@ -234,7 +269,7 @@ PS.touch = function( x, y, data, options ) {
 				else if (g == false){
 					PS.color( x + 1, y, PS.COLOR_GREEN );
 				}		
-			}
+			
 	}
 }
 //BR
@@ -244,8 +279,7 @@ PS.touch = function( x, y, data, options ) {
 		if (b == false ){
 			PS.color( x - 1, y, PS.COLOR_BLUE );
 			}
-			else {
-				if (r == false){
+			else if (r == false){
 				PS.color( x - 1, y, PS.COLOR_RED );
 				}
 				else if (g == false){
@@ -253,7 +287,7 @@ PS.touch = function( x, y, data, options ) {
 				}
 				else if (w == false){
 					PS.color( x - 1, y, PS.COLOR_WHITE );
-				}
+				
 				
 			}
 	}
@@ -261,8 +295,7 @@ PS.touch = function( x, y, data, options ) {
 		if (r == false ){
 			PS.color( x - 1, y, PS.COLOR_RED );
 			}
-			else {
-				if (g == false){
+			else if (g == false){
 				PS.color( x -1 , y, PS.COLOR_GREEN );
 				}
 				else if (w == false){
@@ -272,14 +305,13 @@ PS.touch = function( x, y, data, options ) {
 					PS.color( x - 1, y, PS.COLOR_BLUE );
 				}
 				
-			}
+			
 	}
 	else if (color.r == 255 && color.g == 0 && color.b == 0){
 		if (g == false ){
 			PS.color( x - 1, y, PS.COLOR_GREEN );
 			}
-			else {
-				if (w == false){
+			else if (w == false){
 				PS.color( x - 1, y, PS.COLOR_WHITE );
 				}
 				else if (b == false){
@@ -287,15 +319,14 @@ PS.touch = function( x, y, data, options ) {
 				}
 				else if (r == false){
 					PS.color( x - 1, y, PS.COLOR_RED );
-				}
+				
 			}
 	}
 	else if (color.r == 0 && color.g == 255 && color.b == 0){
 		if (w == false ){
 			PS.color( x - 1, y, PS.COLOR_WHITE );
 			}
-			else {
-				if (b == false){
+			else if (b == false){
 				PS.color( x - 1, y, PS.COLOR_BLUE );
 				}
 				else if (r == false){
@@ -304,7 +335,7 @@ PS.touch = function( x, y, data, options ) {
 				else if (g == false){
 					PS.color( x - 1, y, PS.COLOR_GREEN );
 				}		
-			}
+			
 	}
 }
 //BR
@@ -314,8 +345,7 @@ PS.touch = function( x, y, data, options ) {
 		if (b == false ){
 			PS.color( x, y + 1, PS.COLOR_BLUE );
 			}
-			else {
-				if (r == false){
+			else if (r == false){
 				PS.color( x, y + 1, PS.COLOR_RED );
 				}
 				else if (g == false){
@@ -325,14 +355,13 @@ PS.touch = function( x, y, data, options ) {
 					PS.color( x, y + 1, PS.COLOR_WHITE );
 				}
 				
-			}
+			
 	}
 	else if (color.r == 0 && color.g == 0 && color.b == 255){
 		if (r == false ){
 			PS.color( x, y + 1, PS.COLOR_RED );
 			}
-			else {
-				if (g == false){
+			else if (g == false){
 				PS.color( x, y + 1, PS.COLOR_GREEN );
 				}
 				else if (w == false){
@@ -343,13 +372,12 @@ PS.touch = function( x, y, data, options ) {
 				}
 				
 			}
-	}
+	
 	else if (color.r == 255 && color.g == 0 && color.b == 0){
 		if (g == false ){
 			PS.color( x, y + 1, PS.COLOR_GREEN );
 			}
-			else {
-				if (w == false){
+			else if (w == false){
 				PS.color( x, y + 1, PS.COLOR_WHITE );
 				}
 				else if (b == false){
@@ -359,13 +387,12 @@ PS.touch = function( x, y, data, options ) {
 					PS.color( x, y + 1, PS.COLOR_RED );
 				}
 			}
-	}
+	
 	else if (color.r == 0 && color.g == 255 && color.b == 0){
 		if (w == false ){
 			PS.color( x, y + 1, PS.COLOR_WHITE );
 			}
-			else {
-				if (b == false){
+			else if (b == false){
 				PS.color( x, y + 1, PS.COLOR_BLUE );
 				}
 				else if (r == false){
@@ -374,7 +401,7 @@ PS.touch = function( x, y, data, options ) {
 				else if (g == false){
 					PS.color( x, y + 1, PS.COLOR_GREEN );
 				}		
-			}
+			
 	}
 }
 //BR
@@ -384,8 +411,7 @@ PS.touch = function( x, y, data, options ) {
 		if (b == false ){
 			PS.color( x, y - 1, PS.COLOR_BLUE );
 			}
-			else {
-				if (r == false){
+			else if (r == false){
 				PS.color( x, y - 1, PS.COLOR_RED );
 				}
 				else if (g == false){
@@ -395,14 +421,13 @@ PS.touch = function( x, y, data, options ) {
 					PS.color( x, y - 1, PS.COLOR_WHITE );
 				}
 				
-			}
+			
 	}
 	else if (color.r == 0 && color.g == 0 && color.b == 255){
 		if (r == false ){
 			PS.color( x, y - 1, PS.COLOR_RED );
 			}
-			else {
-				if (g == false){
+			else if (g == false){
 				PS.color( x, y - 1, PS.COLOR_GREEN );
 				}
 				else if (w == false){
@@ -412,14 +437,13 @@ PS.touch = function( x, y, data, options ) {
 					PS.color( x, y - 1, PS.COLOR_BLUE );
 				}
 				
-			}
+			
 	}
 	else if (color.r == 255 && color.g == 0 && color.b == 0){
 		if (g == false ){
 			PS.color( x, y - 1, PS.COLOR_GREEN );
 			}
-			else {
-				if (w == false){
+			else if (w == false){
 				PS.color( x, y - 1, PS.COLOR_WHITE );
 				}
 				else if (b == false){
@@ -428,14 +452,13 @@ PS.touch = function( x, y, data, options ) {
 				else if (r == false){
 					PS.color( x, y - 1, PS.COLOR_RED );
 				}
-			}
+			
 	}
 	else if (color.r == 0 && color.g == 255 && color.b == 0){
 		if (w == false ){
 			PS.color( x, y - 1, PS.COLOR_WHITE );
 			}
-			else {
-				if (b == false){
+			else if (b == false){
 				PS.color( x, y - 1, PS.COLOR_BLUE );
 				}
 				else if (r == false){
@@ -444,26 +467,28 @@ PS.touch = function( x, y, data, options ) {
 				else if (g == false){
 					PS.color( x, y - 1, PS.COLOR_GREEN );
 				}		
-			}
+			
 	}
 	}
 
 
-
+	};
 //BR
-//	if (b == false ){
-//	var b = true
-//	}
-//	if (g = false){
-//	var g = true
-//	}
-/*	if (r = false){
+/*
+	if (b == false ){
+	var b = true
+	}
+	if (g = false){
+	var g = true
+	}
+	if (r = false){
 	var r = true
 	}
 	if (w = false){
 	var w = true
 	}
-	PS.debug("test")
+	*/
+/*	PS.debug("test")
 	for (var i = 0; i < 8; i++){
 		PS.debug("test2")
 		for (var n = 0; n < 8; n++){
@@ -477,6 +502,129 @@ PS.touch = function( x, y, data, options ) {
 			}
 	}
 }
+*/
+
+/*
+PS.touch = function( x, y, data, options ) {
+	if (b == false){
+	var b = true
+	var tx = 0;
+	var ty = 0;
+	for (;64;){ //test blue
+		if(tx < 7){
+			var color = PS.unmakeRGB( PS.color( tx , ty ), {} );
+			if (color.r == 0 && color.g == 0 && color.b == 255){
+				PS.debug("test3")
+				var tx = tx + 1
+				if (tx == 8){
+					var tx = 0;
+					var ty = ty + 1
+					if (ty == 8){
+						break
+					}
+				}
+		}
+			else{
+				var b = false
+				break
+			}
+
+
+		}
+		
+	}
+	}
+	if (g == false){
+		var g = true
+		var tx = 0;
+		var ty = 0;
+		for (;64;){ //test green
+			if(tx < 7){
+				var color = PS.unmakeRGB( PS.color( tx , ty ), {} );
+				if (color.r == 0 && color.g == 255 && color.b == 0){
+					PS.debug("test3")
+					var tx = tx + 1
+					if (tx == 8){
+						var tx = 0;
+						var ty = ty + 1
+						if (ty == 8){
+							break
+						}
+					}
+			}
+				else{
+					var g = false
+					break
+				}
+	
+	
+			}
+			
+		}
+		}
+		if (r == false){
+			var r = true
+			var tx = 0;
+			var ty = 0;
+			for (;64;){ //test red
+				if(tx < 7){
+					var color = PS.unmakeRGB( PS.color( tx , ty ), {} );
+					if (color.r == 255 && color.g == 0 && color.b == 0){
+						PS.debug("test3")
+						var tx = tx + 1
+						if (tx == 8){
+							var tx = 0;
+							var ty = ty + 1
+							if (ty == 8){
+								break
+							}
+						}
+				}
+					else{
+						var r = false
+						break
+					}
+		
+		
+				}
+				
+			}
+			}
+
+			if (w == false){
+				var w = true
+				var tx = 0;
+				var ty = 0;
+				for (;64;){ //test white
+					if(tx < 7){
+						var color = PS.unmakeRGB( PS.color( tx , ty ), {} );
+						if (color.r == 255 && color.g == 255 && color.b == 255){
+							PS.debug("test3")
+							var tx = tx + 1
+							if (tx == 8){
+								var tx = 0;
+								var ty = ty + 1
+								if (ty == 8){
+									break
+								}
+							}
+					}
+						else{
+							var w = false
+							break
+						}
+			
+			
+					}
+					
+				}
+				}
+			}
+
+
+
+*\
+/*
 	for (let i = 0; i < 8; i++){
 		for (let n = 0; n < 8; n++){
 			var color = PS.unmakeRGB( PS.color( i , n ), {} );
@@ -518,7 +666,7 @@ PS.touch = function( x, y, data, options ) {
 	// Add code here for mouse clicks/touches
 	// over a bead.
 	*/
-};
+
 
 /*
 PS.release ( x, y, data, options )
@@ -645,5 +793,4 @@ NOTE: Currently, only mouse wheel events are reported, and only when the mouse c
 //	 }
 
 	// Add code here for when an input event is detected.
-//};
 
