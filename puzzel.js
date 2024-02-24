@@ -74,8 +74,26 @@ PS.init = function( system, options ) {
 
 	PS.statusText( "Match" );
 
-	var x = 0
-	var y = 0
+	
+	let bline1 = PS.line(-1,-1,7,7);
+	for (let i = 0; i < bline1.length; i++){
+		PS.color(bline1[i][0], bline1[i][1], PS.COLOR_BLUE);
+	}
+	let rline1 = PS.line(0,-1,7,6);
+	for (let i = 0; i < rline1.length; i++){
+		PS.color(rline1[i][0], rline1[i][1], PS.COLOR_RED);
+	}
+	let gline1 = PS.line(1,-1,7,5);
+	for (let i = 0; i < gline1.length; i++){
+		PS.color(gline1[i][0], gline1[i][1], PS.COLOR_GREEN);
+	}
+
+
+
+
+/*
+	var x = 0;
+	var y = 0;
 	for (var i = 0; i < 8; i++ ){
 		
 		if (x == 0) {
@@ -110,13 +128,21 @@ PS.init = function( system, options ) {
 			PS.color( x, y, PS.COLOR_WHITE );
 			var x = 0
 			var y = y + 1
-		
+		}
+		PS.debug(x + ", " + y);
 
-	}
+	
 	
 	}
+
+	*/
 	// Add any other initialization code you need here.
 };
+
+
+
+
+
 
 var b = false;
 var g = false;
@@ -137,7 +163,10 @@ PS.touch = function( x, y, data, options ) {
 	// Uncomment the following code line
 	// to inspect x/y parameters:
 	
+
 	var color = PS.unmakeRGB( PS.color( x , y ), {} );
+	PS.debug("aaa");
+
 	
 	if(color.r == 255 && color.g == 255 && color.b == 255) {
 		if (b == false ){
@@ -469,10 +498,38 @@ PS.touch = function( x, y, data, options ) {
 				}		
 			
 	}
+
+}
+
+
+	var matched = true;
+	PS.debug("weh");
+	PS.debug(PS.color(0,0).g);
+	var beadcolor = PS.unmakeRGB( PS.color(0 , 0), {} );
+	PS.debug(beadcolor.r);
+	bigLoop: for (var i = 0; i < 8; i++){
+		//PS.debug("test2")
+		for (var n = 0; n < 8; n++){
+			var color = PS.unmakeRGB( PS.color( i , n ), {} );
+			if (color == beadcolor){
+
+			}
+		
+			else{
+				matched = false
+				PS.debug(b);
+				break bigLoop;
+				
+			}
+		}
+	}
+	if (matched == true){
+		PS.statusText("Congrats");
 	}
 
+	
+};
 
-	};
 //BR
 /*
 	if (b == false ){
@@ -488,21 +545,10 @@ PS.touch = function( x, y, data, options ) {
 	var w = true
 	}
 	*/
-/*	PS.debug("test")
-	for (var i = 0; i < 8; i++){
-		PS.debug("test2")
-		for (var n = 0; n < 8; n++){
-			var color = PS.unmakeRGB( PS.color( i , n ), {} );
-			if (color.r == 0 && color.g == 0 && color.b == 255){
-				PS.debug("test3")
-
-		}
-			else{
-				var b = false
-			}
-	}
-}
-*/
+	
+	
+ 
+	
 
 /*
 PS.touch = function( x, y, data, options ) {
